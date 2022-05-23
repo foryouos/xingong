@@ -1,0 +1,733 @@
+
+
+html{
+	position: relative;
+  	min-height: 100%;
+	font-family: 华文行楷;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+/*-------------头部------------*/
+/*头部边距*/
+.top {
+    margin-top: 10px;
+}
+/*电话图标*/
+.phone {
+    color: #666;
+    float: right;
+}
+
+
+/*轮播图大小*/
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+.carousel-caption {
+    right: 20%;
+
+    padding-bottom: 30px;
+    font-size: 23px;
+    animation: text_move 3s 1;
+    animation-fill-mode:forwards;
+}
+@keyframes text_move {
+	from{
+		left: -100%;
+		opacity: 0;
+	}to{
+		left: -45%;
+		opacity: 1;
+		 }
+}
+.body_home .header{
+	transform: none;
+	position: absolute;
+	left: 0;
+    right: 0;
+    z-index: 3;
+    transition: opacity 0.7s ease-out 0s;
+	animation:header_move 5s 1;
+	animation-fill-mode:forwards;
+}
+@keyframes header_move {
+	from{
+		top:-100px;
+		opacity: 0;
+	}to{
+		top:0px;
+		opacity: 1;
+		 }
+}
+.header .d1 {
+    background: rgba(0,0,0,0);
+    color: #d39797;
+    line-height: 45px;
+    height: 93px;
+    font-size: 20px;
+    transition: all 0.2s ease-out 0s;
+}
+.img-logo{
+	max-height: 65%;
+	width: 140%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/*设置至善至真，的滑动*/
+.logo_word1{
+    left: 58%; 
+    top: -113px;
+    width: 10%;
+}
+.logo_word2{
+    left: 58%; 
+    top: -61px;
+    width: 10%;
+}
+
+
+
+
+
+/*下拉自定义*/
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 1px;
+    border:6px;
+}
+/*邮箱图标*/
+.mail {
+    color: #666;
+    float: right;
+}
+/*取消小图标的下划线*/
+.ant:link {
+    text-decoration: none;
+}
+
+.ant:visited {
+    text-decoration: none;
+}
+
+.ant:hover {
+    text-decoration: none;
+}
+
+.ant:active {
+    text-decoration: none;
+}
+.navbar-default {
+    margin-bottom: 0px;    /* 底部边距调整为0 */
+    border: 0px;         /* 去掉边框 */
+    background-color: rgba(0, 0, 0, 0);    /* 设置导航栏背景色 */
+    margin-top: 20px;    /* 设置导航栏的上边距 */
+}
+/* 导航栏栏目激活时属性 */
+.navbar-default .navbar-nav .active a,
+.navbar-default .navbar-nav .active a:hover,
+.navbar-default .navbar-nav .active a:focus {
+    background-color: rgba(0, 0, 0, 0);    /* 背景色设置为*/
+    color: yellow;    /* 前景文字颜色设置为白色 */
+}
+/* 一级菜单鼠标移过时属性 */
+.navbar-default .navbar-nav li a:hover {
+    color: #fff;
+    background-color: #005197;
+}
+/* 一级菜单单击展开时属性 */
+.navbar-default .navbar-nav li.open a.on {
+    color: #fff;
+    background-color: #005197;
+}
+/* 下拉菜单内边距 */
+.nav {
+    width:110%;
+}
+#bs-example{
+    margin-left: 25%;
+}
+.dropdown-menu {
+    padding: 0;
+    left: 0px;
+    min-width: 125px;
+    transition: all 0.2s ease-out 0s;
+}
+/*出现首页院系页面*/
+
+
+
+.nav_child .item {
+    padding: 40px;
+    display: -ms-flexbox;
+    display: flex;
+
+    top: 8%;
+    position: fixed;
+    width: 900px;
+    background: rgb(0,0,0,0) url(../img/png_down.png)  center bottom no-repeat;
+    background-size: contain;
+    opacity: 0;
+    visibility: hidden;
+	z-index: 99;
+}
+#home:visited > .nav_child .item{
+     opacity: 1;
+    visibility: visible;
+     transition: all 0.2s ease-out 0s;
+}
+#home:hover > .nav_child .item{
+     opacity: 1;
+    visibility: visible;
+     transition: all 0.2s ease-out 0s;
+}
+.nav_child .item:hover{
+     opacity: 1;
+    visibility: visible;
+     transition: all 0.2s ease-out 0s;
+}
+.nav_child .item .l {
+    display: -ms-flexbox;
+    display: flex;
+    width: 65%;
+}
+.nav_child .item .r{
+	text-align: center;
+}
+
+.nav_child .item .r a {
+    width: 33.33%;
+    font-size: 18px;
+    margin-top: 10px;
+    display: inline-block;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+/* 二级菜单标签属性 */
+.dropdown-menu li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: greenyellow;
+    text-align: center;
+}
+/* 一级菜单宽度和文字对齐方式 */
+.nav-top {
+    width: 14%;
+    text-align: center;
+}
+.top{
+    margin-top: 20px;
+}
+#back{
+    background-color: white;
+}
+
+/* 一级菜单宽度和文字对齐方式 */
+.nav-top {
+    width: 14%;
+    text-align: center;
+}
+/* 导航栏与横幅的分割线 */
+.line {
+    height: 3px;
+    width: 100%;
+    background: #005197;
+}
+
+/*  content 头部触发事件     */
+
+#content_ {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    top: 2px;
+}
+/*#content_:hover + .col-md-7{*/
+/*    background-color: orangered;*/
+/*    transition: all 0.2s ease-out 0s;*/
+/*}*/
+/*#content_:hover ~ .header{*/
+/*    position: fixed !important;*/
+/*}*/
+
+/*-------------主体------------*/
+/* 主题标题 */
+.model-details-title{
+	padding:0px 0px;
+	font-size:18px;
+	border-bottom:1px #005197 solid; /* 底部添加蓝色边框 */
+	color:#36282b;
+	margin-bottom:10px;
+	margin-top:30px;
+	font-family: 华文行楷;
+}
+/* 文字段落 */
+.model-details p{
+	line-height:30px;
+	text-indent:2em;
+	text-align:justify;
+	/* text-justify:inter-ideograph; */
+}
+  /* 关于麻花上层图片 */
+.container-fluid img {
+  width: 100%;
+  height: 100%;
+}
+/*关于麻花右侧设置*/
+
+/* 主体图像 */
+.model-details img{
+	margin:0px auto;
+	width: 97%;
+}
+
+/* 侧边导航栏 */
+.row-3{
+	margin-top:30px; /* 设置顶部边距 */
+}
+.col-md-2 left{
+	float: left;
+}
+.col-md-2 right{
+	float: right;
+}
+/*侧边导航栏标题样式*/
+.model-title {
+	text-align: center;
+	color: #fff;
+	font-size: 22px;
+	padding: 15px 0px;
+	background: #005197;
+	margin-top: 25px;
+}
+/*侧边导航栏列表项样式*/
+.model-list li{
+	text-align:center;
+	background-color:#f6f6f6;
+	font-size:16px;
+}
+/*侧边导航栏列表项链接样式*/
+.model-list li a{
+	color:#545353;
+}
+/*侧边导航栏列表项链接激活样式*/
+.model-list li a:hover{
+	text-decoration:none;
+	color:#005197;
+}
+
+/*侧边导航栏激活样式*/
+.model-list li.active{
+	text-align:center;
+	background-color:#f6f6f6;
+	font-size:16px;
+	border-color: #ddd;
+}
+/*侧边导航栏激活状态下鼠标移过时样式*/
+.model-list li.active:hover{
+	text-align:center;
+	background-color:#f6f6f6;
+	font-size:16px;
+	border-color: #ddd;
+}
+/*侧边导航栏激活状态时链接样式*/
+.model-list li.active a{
+	color:#005197;
+}
+
+
+
+
+/*-------------页脚------------*/
+.row {
+    margin-right: -23px;
+    margin-left: -8px;
+	margin-top: 13px;
+}
+.web-footer{
+	width:100%;        /* 占满整个浏览器宽度 */
+	margin-top:30px;   /* 设置与上边缘距离 */
+	position: absolute;
+    bottom: -39px;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    background-color: #f5f5f5;
+}
+
+#map-footer{
+	background-color:#3A3A3A;        /* 对整个站点地图设置背景色灰色 */
+}
+#map-footer dl{
+	text-align:center;               /* 站点链接文字对齐 */
+	margin-top:40px;                 /* 设置表格与上边缘边距 */
+}
+#map-footer dt{
+	padding:3px;                     /* 表格标题内边距为3像素 */
+	color:#fff;                      /* 表格标题颜色为白色 */
+}
+#map-footer dd{
+	padding:3px;                     /* 表格内容内边距为3像素 */
+}
+
+/* 二维码广告段落 */
+#map-footer p{
+	margin-top:20px;
+	margin-bottom:10px;
+	color:#fff;
+	font-size:16px;
+}
+#map-footer a{
+	color:#A6A6A6;                   /* 站点链接文字颜色设置 */
+	font-size:13px;                  /* 站点链接文字大小 设置 */
+}
+#map-footer a:hover{
+	color:#fff;
+	text-decoration:none;             /* 去除站点链接鼠标移过时出现的下划线 */
+}
+#wx{
+	position: absolute;
+    text-align: center;
+    right: 0;             /* 二维码居中对齐 */
+}
+.qrimg{
+	max-width: 170px;                 /* 二维码最大宽度为170像素 */
+}
+
+/*-------------尾部版权------------*/
+#patent-footer{
+	text-align:center;
+	background-color:rgb(0,0,0,0);
+}
+#patent-footer p{
+	margin-top:10px;
+	padding-right:80px;
+	color:#8d8d8d;
+	font-size:11px;
+}
+
+
+
+
+/*新闻中心*/
+.carousel {
+    margin-bottom: 40px;
+}
+.carousel .item {
+    background-color: #000;
+}
+.carousel .nav-point{
+    bottom:-14px;
+}   
+.carousel .nav-title{
+    font-size:12px;
+    bottom:-14px;
+}
+.carousel .item img {
+    width: 100%;    
+}
+.carousel-caption {
+    z-index: 10;
+}
+.carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+.more-btn {
+    float: right;
+    margin-top: 0px;
+    color: #828282;
+    font-size: 11px;
+    width: 41px;
+    height: 23px;
+    background-color: bisque;
+}
+.list-new li{
+    border-bottom:1px dashed #eae7e7;
+    line-height:40px;
+}
+.list-new a{
+    text-decoration:none;
+    color:#666;
+    font-size:13px;
+}
+.list-new a:hover{
+    color:#d30a1c;
+}
+.list-new span{
+    float:right;
+    font-size:12px;
+}
+.list-new .public-detail{
+    float:right;
+    color:#d30a1c;
+}
+
+.img-responsive{
+    transition: all 1.5s
+}
+
+/* 图片悬浮放大 */
+.img-responsive:hover{
+    transform: scale(1.2)
+}
+
+/* 设置首页下面图片 */
+/* 当触碰的时候，使出现颜色，并出现图片介绍 */
+.photo_down { 
+    height: 700px;
+}
+.photo1,.photo2, .photo3, .photo4 ,.photo5{
+    display: block;
+    max-width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    color: #fff;
+    background-repeat: no-repeat;
+
+	background-position:center;
+}
+
+.photo1{
+    background-image: url(../img/down/01.png);
+
+}
+.photo1_back,.photo2_back,.photo3_back,.photo4_back,.photo5_back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.photo1_back,.photo2_back,.photo3_back,.photo4_back,.photo5_back{
+    opacity: 0;
+    height: 0%;
+    transition:height 1s;
+    -moz-transition:height 1s; /* Firefox 4 */
+    -webkit-transition:height 1s; /* Safari and Chrome */
+    -o-transition:height 1s; /* Opera */
+} 
+
+.desc-2kQto6BwF4{
+    display: -webkit-box;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    position: relative;
+    word-break: break-all;
+    z-index: 1;
+    margin-top: 12px;
+    /* opacity: 0; */
+  
+    top: 51%;
+    text-indent: 25px;
+    font-size: larger;
+}
+.photo1_back{
+    background-color: rgb(119 78 46);
+}
+.photo1:hover .photo1_back{
+    opacity: 0.7;
+    height: 100%;
+    transition: all 2s ease-out 0s;
+}
+
+.photo2{
+    background-image: url(../img/down/02.jpg);
+}
+.photo2_back{
+    background-color: rgb(8 67 96);
+}
+.photo2:hover .photo2_back{
+    opacity: 0.7;
+    height: 100%;
+    transition: all 2s ease-out 0s;
+}
+.photo3{
+    background-image: url(../img/down/03.jpg);
+}
+.photo3_back{
+    background-color: #1a2753;
+}
+.photo3:hover .photo3_back{
+    opacity: 0.7;
+    height: 100%;
+    transition: all 2s ease-out 0s;
+}
+.photo4{
+    background-image: url(../img/down/04.jpg);
+}
+.photo4_back{
+    background-color: #b71a1d;
+}
+.photo4:hover .photo4_back{
+    opacity: 0.7;
+    height: 100%;
+    transition: all 2s ease-out 0s;
+}
+.photo5{
+    background-image: url(../img/down/05.jpg);
+}
+.photo5_back{
+    background-color:rgb(164 153 151);
+}
+.photo5:hover .photo5_back{
+    opacity: 0.7;
+    height: 100%;
+    transition: all 2s ease-out 0s;
+}
+/* 当触碰的时候，使出现颜色，并出现图片介绍 */
+
+
+
+/* 设置中间的栏目 */
+/* 设置专题栏目 */
+.title{
+    height: 100%;
+}
+.fz40{
+    position: absolute;
+    top: 5%;
+    font-size: 20px;
+}
+.more{
+    position: relative;
+    top: 50%;
+    left: 39%;
+}
+
+.pic{
+    z-index: 999;
+    width: 115%;
+    height: 500px;
+ 
+}
+
+/* .item{
+    animation:center_move 5s 1;
+	animation-fill-mode:forwards;
+}
+@keyframes center_move {
+	0%{
+		top:0%
+	}
+    50%{
+		top:20%;
+		 }
+    100%{
+        top: 0%;
+    }
+} */
+
+
+
+
+/* 设置图片触碰动态一定 */
+.pic:hover{
+    transform: scale(1.1);
+    transition: all 3s ease-out 0s;
+}
+/* 设置字体方向 */
+.h,.more1,.title{
+    writing-mode: vertical-lr;
+}
+
+.more i,.part1 i {
+    position: inherit;
+    float: left;
+    background: url(https://www.pku.edu.cn/Public/static/themes/image/more1.svg) center center no-repeat;
+    width: 45px;
+    height: 45px;
+    left: -12%;
+    top: -6%;
+    margin-right: 15px;
+    background-size: contain;
+}
+
+.more i:hover {
+    content: "";
+    background: url(https://www.pku.edu.cn/Public/static/themes/image/more1a.svg) center center no-repeat;
+    
+    opacity: 1;
+    transition: all 0.2s ease-out 0s;
+    display: block;
+    background-size: contain;
+}
+/* 设置上下滑动 */
+
+
+
+
+
+
+/* 设置第一个字体栏目 */
+.tit{
+    position: absolute;
+    top: 4%;
+    left: 22%;
+    /* 设置文字之间的间距 */
+    letter-spacing: 3px;  
+    font-size: large;
+}
+/* 设置查看更多 */
+.more1{
+    position: absolute;
+    bottom: 6%;
+    left: 64%;
+    letter-spacing: 11px;
+}
+
+
+
+/* 页面细节完善 */
+
+/* 新闻使用logo替换 */
+.part1 i {
+    position: inherit;
+    float: left;
+    background: url(https://www.pku.edu.cn/Public/static/themes/image/more1a.svg) center center no-repeat;
+    width: 45px;
+    height: 45px;
+    left: -12%;
+    top: -6%;
+    margin-right: 15px;
+    background-size: contain;
+}
+.part1 a{
+    position: absolute;
+    font-size: 27px;
+    top: 9%;
+    color: red;
+    left: 13%;
+}
+/* 分页控件样式 */
+.paging{
+    text-align:center;
+}
+.pagination .active a{
+    background-color:#005197;
+    border-color:#005197;
+}

@@ -1,0 +1,8 @@
+/* 分页控件样式 */
+.paging{
+    text-align:center;
+}
+.pagination .active a{
+    background-color:#005197;
+    border-color:#005197;
+}
