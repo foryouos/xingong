@@ -1,0 +1,38 @@
+{% extends "base1.html" %}
+{% load staticfiles %}
+{% block title %}
+新闻详情
+{% endblock %}
+{% block content %}
+<link href="{% static 'css/news.css' %}" rel="stylesheet">
+<!-- 主体内容 -->
+<div class="container">
+     <!-- 侧边导航栏 -->
+     <div class="col-md-3">
+        <div class="model-title">
+            招生动态
+        </div>
+        <div class="model-list">
+            <ul class="list-group">
+                <li class="list-group-item" id='company'>
+                    <a href="{% url 'zhaosheng:news' 'company' %}">招生信息</a>
+                </li>
+                <li class="list-group-item" id='industry'>
+                    <a href="{% url 'zhaosheng:news' 'industry' %}">招生政策</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-9">
+
+        <div class="model-details-product-title">
+            {{mynew.title}}
+            <div class="model-foot">发布时间：{{mynew.publishDate|date:"Y-m-d"}} &nbsp;&nbsp;
+                浏览次数：{{mynew.views}}</div>
+        </div>
+        <div class="model-details">
+            {{ mynew.description | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}
