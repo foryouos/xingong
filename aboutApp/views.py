@@ -68,8 +68,8 @@ def news(request, newName):
     return render(
         request, 'newList.html', {
             'active_menu': 'zhaosheng',
-            'sub_menu': submenu,
-            'newName': newName,
+            'sub_menu': submenu, # 定义副标题
+            'newName': newName, # 定义名字
             'newList': newList,
             'pageData': pageData,
         })
