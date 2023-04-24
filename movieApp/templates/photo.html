@@ -1,0 +1,87 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}
+    校园风光
+{% endblock %}
+
+{% block content %}
+<link href="{% static 'css/photo.css' %}" rel="stylesheet">
+<div class="container">
+    <div class="row row-3">
+        <div class="col-md-3">
+            <div class="model-title">
+                校园风光
+            </div>
+            <div class="model-list">
+                <ul class="list-group">
+                    <li class="list-group-item" style="border-radius: 16px;" id="movie">
+                        <a href="{% url 'movieApp:movie' %}">视频</a>
+                    </li>
+                    <li class="list-group-item" style="border-radius: 16px;" id="photo">
+                        <a href="{% url 'movieApp:photo' %}">风景</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <!-- 说明文字和图片 -->
+        <div class="col-md-9">
+            <div class="model-details-title">
+                校园风光
+            </div>
+            <div class="row">
+                {% for photo in school_photo %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{photo.photo.url}}" style="width: 300px;height: 200px;">
+                        <div class="caption" style="text-align: center;">
+                            <p >{{photo.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if pageData %}
+                <div class="paging">
+                    <ul id="pages" class="pagination pagination-sm pagination-xs">
+                        {% if pageData.first %}
+                        <li><a href="?page=1">1</a></li>
+                        {% endif %}
+                        {% if pageData.left %}
+                        {% if pageData.left_has_more %}
+                        <li><span>...</span></li>
+                        {% endif %}
+                        {% for i in pageData.left %}
+                        <li><a href="?page={{i}}">{{i}}</a></li>
+                        {% endfor %}
+                        {% endif %}
+                        <li class="active"><a href="?page={{pageData.page}}">{{pageData.page}}</a></li>
+                        {% if pageData.right %}
+                        {% for i in pageData.right %}
+                        <li><a href="?page={{i}}">{{i}}</a></li>
+                        {% endfor %}
+                        {% if pageData.right_has_more %}
+                        <li><span>...</span></li>
+                        {% endif %}
+                        {% endif %}
+                        {% if pageData.last %}
+                        <li><a href="?page={{pageData.total_pages}}">{{pageData.total_pages}}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{#    传递使侧边可以点击响应#}
+<script type="text/JavaScript">
+    $('#{{sub_menu}}').addClass("active");
+</script>
+
+{% endblock %}

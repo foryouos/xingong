@@ -1,0 +1,61 @@
+{% extends "base1.html" %}
+{% load static %}
+{% block title %}
+学校新闻
+{% endblock %}
+{% block content %}
+  <!-- 显示主题信息 -->
+  <link href="{% static 'css/news.css' %}" rel="stylesheet">
+    <!-- 填写侧边栏 -->
+    <div class="container" style="width: 100%;">
+        <!-- 侧边导航栏 -->
+        <div class="col-md-2" style="left: 10%;">
+            <div class="model-title">
+                新科新闻
+            </div>
+            <div class="model-list">
+                <ul class="list-group">
+                    <li class="list-group-item" id="school">
+                        <a href="{% url 'newsApp:news' 'school' %}">学校新闻</a>
+                    </li>
+                    <li class="list-group-item" id="notation">
+                        <a href="{% url 'newsApp:news' 'notation' %}">通知公告</a>
+                    </li>
+                    <li class="list-group-item" id="faculty">
+                        <a href="{% url 'newsApp:news' 'faculty' %}">院部动态</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-7" style="margin-left: 15%;">
+          
+            <!-- 主体内容 -->
+            <div class="container" style="width: 100%;">
+                <div class="model-details-product-title">
+                    {{ news.title }}
+                    <div class="model-foot">发布时间：{{news.publishDate|date:"Y-m-d"}} &nbsp;&nbsp;
+                        浏览次数：{{ news.views }}</div>
+                </div>
+                  <!-- 首先显示图片已经相关描述 -->
+                <div class="col-md-12 img" >
+                    {% for img in news.newsImgs.all %}
+                
+                   <div class="col-md-6">
+                        <img class="img_tu" src="{{img.photo.url}}" alt="图片">
+                        <h5>{{img.photo_title}}</h5>
+                    </div>
+             
+                    {% endfor %}
+                </div>
+               
+                <div class="model-details">
+                  
+                    {{ news.description | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+{% endblock %}

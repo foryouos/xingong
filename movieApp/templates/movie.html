@@ -1,0 +1,135 @@
+{% extends 'base_movie.html' %}
+{% load static %}
+{% block title %}
+    校园视频
+{% endblock %}
+
+{% block content %}
+      <!-- 主体内容 -->
+      <div class="container" style="height: 600px;top: 100px;position: absolute;">
+        <div class="page-header" style="position: relative;margin: 18px;left: 15%;text-align: center;">
+                <h1>影视鉴赏
+                    <small id="moviename">校园风光</small>
+                </h1>
+            </div>
+        
+        <div class="col-md-12" style="left: 15%;">
+                <div id="dplayer"></div>
+                <div style="text-align: center;top: 16px;position: relative;">
+                    <button type="button" class="btn btn-success" onclick="play()">操场活动</button>
+                    <button type="button" class="btn btn-success" onclick="chance()">空中延时播放</button>
+                </div>
+                <br>
+                <br>
+              
+               
+        </div>
+        
+</div>
+
+<script>
+    
+    const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    autoplay: true,
+    theme: '#FADFA3',
+    loop: true,
+    lang: 'zh-cn',
+    screenshot: true,
+    hotkey: true,
+    preload: 'auto',
+    logo: '../../../static/img/sun.png',
+    volume: 0.7,
+    mutex: true,
+    
+    video: {
+        url: '../../../static/img/sky.MP4',
+        pic: 'dplayer.png',
+        thumbnails: '../../../static/img/sun.png',
+        type: 'auto',
+    },
+   
+    //设置图片质量
+    // video: {
+    //     quality: [
+    //         {
+    //             name: '操场活动',
+    //             url: '../../../static/img/movie.mp4',
+    //             type: 'auto',
+    //         },
+    //         {
+    //             name: '天空延时',
+    //             url: '../../../static/img/sky.MP4',
+    //             type: 'auto',
+    //         },
+    //     ],
+    //     defaultQuality: 0,
+    //     pic: 'demo.png',
+    //     thumbnails: '../../../static/img/school3.jpg',
+    // },
+    subtitle: {
+        url: 'dplayer.vtt',
+        type: 'webvtt',
+        fontSize: '25px',
+        bottom: '10%',
+        color: '#b7daff',
+    },
+    
+    contextmenu: [
+        {
+            text: 'custom1',
+            link: 'https://github.com/DIYgod/DPlayer',
+        },
+        {
+            text: 'custom2',
+            click: (player) => {
+                console.log(player);
+            },
+        },
+    ],
+    
+    });
+
+    function chance(){
+        
+        dp.switchVideo(
+            
+        {
+            url: '../../../static/img/sky.MP4',
+            pic: 'second.png',
+            thumbnails: '../../../static/img/sun.png',
+        },
+        {
+            id: 'test',
+            api: 'https://api.prprpr.me/dplayer/',
+            maximum: 3000,
+            user: 'DIYgod',
+        }
+        );
+    }
+
+    function play(){
+        
+        dp.switchVideo(
+            
+        {
+            url: '../../../static/img/movie.mp4',
+            pic: 'second.png',
+            thumbnails: '../../../static/img/sun.png',
+        },
+        {
+            id: 'test',
+            api: 'https://api.prprpr.me/dplayer/',
+            maximum: 3000,
+            user: 'DIYgod',
+        }
+        );
+    }
+
+   
+    
+
+</script>
+
+
+{% endblock %}
