@@ -5,7 +5,7 @@ from django.db.models import Q
 from news.models import News,newsImg
 from movieApp.models import School_Photo
 
-# 动态渲染页面
+# 动态渲染页面，引用轮播图，和轮播视频
 from .models import Lunbo_main,Lunbo_video
 
 # Create your views here.

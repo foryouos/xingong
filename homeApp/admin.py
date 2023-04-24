@@ -4,7 +4,7 @@ from .models import Lunbo_main,Lunbo_video
 admin.site.site_header = '新乡工程学院后台管理系统'
 admin.site.site_title = '新乡工程学院后台管理系统'
 
-#将模拟
+#将model里面的函数添加到类当中
 class Lunbo_mainAdmin(admin.ModelAdmin):
     list_display = ['description','photo']
 admin.site.register(Lunbo_main,Lunbo_mainAdmin)

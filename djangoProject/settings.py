@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# 添加文件定义，文件需要相应目录
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,12 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'homeApp',
+    'homeApp',  # 创建新文件
     'movieApp',
     'aboutApp',
     'Faculty',
     'news',
-
     'DjangoUeditor',    # 添加富文本应用
 ]
 

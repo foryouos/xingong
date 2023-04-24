@@ -7,12 +7,14 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 import random
-from django.utils import six
-
-from django.utils.six.moves.urllib.request import urlopen
-from django.utils.six.moves.urllib.parse import urljoin
-
-
+#from django.utils import six
+# 兼容Django3
+import six
+# from django.utils.six.moves.urllib.request import urlopen
+# from django.utils.six.moves.urllib.parse import urljoin
+# 兼容Django3
+from six.moves.urllib.request import urlopen
+from six.moves.urllib.parse import urljoin
 if six.PY3:
     long = int
 

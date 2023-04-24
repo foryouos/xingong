@@ -1,7 +1,8 @@
 from django.db import models
-
+# 建立后台服务器需要的模型
 # Create your models here.
 #创建首页图片轮播后台数据库 k=Luobo_main
+#
 class Lunbo_main(models.Model):
     description=models.TextField(max_length=20,
                                  blank=True,
