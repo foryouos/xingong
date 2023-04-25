@@ -37,8 +37,19 @@ print(line_A(1))  # 输出3
 print(line_A(1))  # 输出5
 print(line_A(1))  # 输出2
 ```
-
+## 装饰器
+> 例如`@timer`
+> 在并不修改原函数的代码也不修改函数调用形式实现功能的扩展
+## 引用
+```html
+<!--引用css-->
+<link href="" rel="stylesheet">
+<!--引用js-->
+<script src=""></script>
+```
+> [具体使用](use.md)
 # 依赖环境（需要更新)
+> bootstrap 5 + Django3.2.3 + Python3.6 +   DPlayer v1.27.1
 > 安装DjangoUeditor==1.8.143：下载链接https://gitcode.net/mirrors/twz915/djangoueditor3?utm_source=csdn_github_accelerator
 > D:\djangoueditor3>E:\新工项目\venv\Scripts\python.exe setup.py install
 > 使用国内镜像 pip install 安装包名 -i https://pypi.tuna.tsinghua.edu.cn/simple

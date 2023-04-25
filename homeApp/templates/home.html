@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "basemain.html" %}
 {% load static %}
 {% block title %}
     新乡工程学院
@@ -12,9 +12,9 @@
   <!--轮播下面的内容-->
     <!-- 新闻动态 -->
     <div class="col-md-6">
-      <span class="part1">
-        <i></i>
-          <a href="{% url 'zhaosheng:news' 'company' %}">招生信息</a>
+        <span class="part1">
+            <i></i>
+            <a href="{% url 'zhaosheng:news' 'company' %}">招生信息</a>
         </span>
         <!-- <span class="part1 en">
           &nbsp;&nbsp;/ News
@@ -62,7 +62,8 @@
               style="background-size:cover;">
               <a href="{% url 'zhaosheng:newDetail' post.id %}">
                 <img src="{{post.photo.url}}" class="img-responsive" onload="DrawImage(this)">
-              <div class="carousel-caption nav-title">{{post.title}}</div>
+                <div class="carousel-caption nav-title">{{post.title}}</div>
+              <a/>
             </div>
             {% endfor %}
           </div>
