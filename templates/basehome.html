@@ -13,6 +13,10 @@
 
     <script src="{% static 'js/DPlayer.min.js' %}"></script>
     <script src="{% static 'js/DPlayer.min.js.map' %}"></script>
+
+    <link href="{% static 'css/contact.css' %}" rel="stylesheet">
+    <script src="{% static 'js/layDate-v5.0.9/laydate.js' %}"></script>
+    <script src="{% static 'js/jqthumb.min.js' %}"></script>
 </head>
 <body>
      {#    设置导航条#}
@@ -133,15 +137,17 @@
             {# <span class="sr-only">Next</span>#}
         </a>
     </div>
+
+
      <!-- 放模版文件 -->
     <div class="container">
-
+        {% block content %}{% endblock %}
     </div>
 
 
     <!--设置各个页面的页脚内容  -->
     <!-- 页脚 -->
-    <footer class="bg-light text-black mt-auto bottom">
+    <footer class="bg-light text-black mt-auto " style="position: absolute;bottom: 0;width: 100%;">
       <div class="container">
            <p style="text-align: center;"> 地址：河南省新乡市新飞大道南段777号  新乡工程学院    豫ICP备2020031409号-1</p>
       </div>
@@ -149,6 +155,13 @@
 
 
 
+<script>
 
+        var myCarousel_top = document.querySelector('#myCarousel')
+        var carousel_top = new bootstrap.Carousel(myCarousel_top, {
+            interval: 5000,//时间间隔
+            wrap: true//轮播到最后一张图片时候继续轮播，true为继续
+        })
+</script>
 </body>
 </html>

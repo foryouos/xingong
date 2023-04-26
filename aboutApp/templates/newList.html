@@ -47,30 +47,30 @@
 
                 {% if pageData %}
                 <div class="paging">
-                    <ul id="pages" class="pagination">
+                    <ul id="pages" class="pagination justify-content-center">
                         {% if pageData.first %}
-                        <li><a href="?page=1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
                         {% endif %}
                         {% if pageData.left %}
                         {% if pageData.left_has_more %}
-                        <li><span>...</span></li>
+                        <li class="page-item"><span>...</span></li>
                         {% endif %}
                         {% for i in pageData.left %}
-                        <li><a href="?page={{i}}">{{i}}</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
                         {% endfor %}
                         {% endif %}
-                        <li class="active"><a href="?page={{pageData.page}}">
+                        <li class="page-item active"><a class="page-link" href="?page={{pageData.page}}">
                                 {{pageData.page}}</a></li>
                         {% if pageData.right %}
                         {% for i in pageData.right %}
-                        <li><a href="?page={{i}}">{{i}}</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
                         {% endfor %}
                         {% if pageData.right_has_more %}
-                        <li><span>...</span></li>
+                        <li class="page-item"><span>...</span></li>
                         {% endif %}
                         {% endif %}
                         {% if pageData.last %}
-                        <li><a href="?page={{pageData.total_pages}}">
+                        <li class="page-item"><a class="page-link" href="?page={{pageData.total_pages}}">
                                 {{pageData.total_pages}}</a></li>
                         {% endif %}
                     </ul>

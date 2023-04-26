@@ -18,7 +18,7 @@
 * z-index: 99; 在立体上调整显示级别
 * text-align: center; 文本居中
 * margin-top: 1%;  向下偏移1%
-* 
+* height: 725px; overflow: hidden;  当高度高于725px则隐藏
 
 > bootstrap5 class 属性以及含义
 * fixed-bottom :强制位于底部

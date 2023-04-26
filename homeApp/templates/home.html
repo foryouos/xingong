@@ -1,291 +1,120 @@
-{% extends "basemain.html" %}
+{% extends "basehome.html" %}
 {% load static %}
 {% block title %}
     新乡工程学院
 {% endblock %}
 
 {% block content %}
-
-<link href="{% static 'css/contact.css' %}" rel="stylesheet">
-<script src="{% static 'js/layDate-v5.0.9/laydate.js' %}"></script>
-<script src="{% static 'js/jqthumb.min.js' %}"></script>
   <!--轮播下面的内容-->
     <!-- 新闻动态 -->
-    <div class="col-md-6">
-        <span class="part1">
-            <i></i>
-            <a href="{% url 'zhaosheng:news' 'company' %}">招生信息</a>
-        </span>
-        <!-- <span class="part1 en">
-          &nbsp;&nbsp;/ News
-        </span> -->
-        
-        <a class="btn btn-default btn-xs more-btn" href="{% url 'zhaosheng:news' 'company' %}">更多+
-        </a>
-    
-      </div>
-      <!-- 学校新闻 -->
-      <div class="col-md-5" style="left: 4%;">
-        <span class="part1">
-          <i></i>
-            <a href="{% url 'newsApp:news' 'school' %}">新闻</a>
-          </span>
-          <!-- <span class="part1 en">
-            &nbsp;&nbsp;/ News
-          </span> -->
-          
-          <a class="btn btn-default btn-xs more-btn" href="{% url 'newsApp:news' 'school' %}">更多+
-          </a>
-      </div>
-      <br>
-
-
-
-    <br>
-      <div class="line1">
-        <div class="line2 theme"></div>
-      </div>
-      <br>
-      <div class="col-md-3">
-        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators nav-point">
-            {% for post in postList %}
-            <li data-target="#myCarousel" data-slide-to="{{forloop.counter0}}" {% if forloop.first %} class="active"
-              {% endif %}>
-            </li>
-            {% endfor %}
-          </ol>
-          <!-- 轮播（Carousel）项目 -->
-          <div class="carousel-inner" style="margin-top:15px;height: 200px;">
-            {% for post in postList %}
-            <div {% if forloop.first %} class="item active" {% else %} class="item" {% endif %}
-              style="background-size:cover;">
-              <a href="{% url 'zhaosheng:newDetail' post.id %}">
-                <img src="{{post.photo.url}}" class="img-responsive" onload="DrawImage(this)">
-                <div class="carousel-caption nav-title">{{post.title}}</div>
-              <a/>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <ul class="list-unstyled list-new">
-          {% for mynew in newList %}
-          <li>
-            <a href="{% url 'zhaosheng:newDetail' mynew.id %}">
-              {{mynew.title|truncatechars:"15"}}</a>
-            <span>【{{mynew.publishDate|date:"Y-m-d"}}】</span>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-
-      <!-- 学校新闻 -->
-      <!-- 学校新闻 -->
-      
-<div class="model-details col-md-5" style="font-size: 9px;font-family: revert;float: right; margin-right: 3%;height: 870px; overflow: hidden;">
-  <div class="panel-group" id="accordion">
-      {% for new in newsList %}
-      <div class="panel panel-default">
-          <div class="panel-heading" role="tab" id="panel{{new.id}}">
-              <h4 class="panel-title">
-                  
-                  {% if forloop.first %}
-                  <a role="button" data-toggle="collapse" data-parent="#accordion"
-                      href="#collapse{{new.id}}">
-                      {% else %}
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                          href="#collapse{{new.id}}">
-                          {% endif %}
-                          {{new.title|truncatechars:"20"}}
+    <div class="row">
+        <div class="col-md-5">
+            <span class="">
+                <i></i>
+                <a href="{% url 'zhaosheng:news' 'company' %}">招生信息</a>
+            </span>
+            <a class="btn btn-default btn-xs more-btn" href="{% url 'zhaosheng:news' 'company' %}">更多+</a>
+            <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators nav-point">
+                {% for post in postList %}
+                <li data-target="#myCarousel" data-slide-to="{{forloop.counter0}}" {% if forloop.first %} class="active"
+                  {% endif %}>
+                </li>
+                {% endfor %}
+              </ol>
+                <!-- 轮播（Carousel）项目 -->
+              <div id="news" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for post in postList %}
+                    <div {% if forloop.first %} class="carousel-item item active" {% else %} class="carousel-item item" {% endif %} style="background-size:cover;">
+                      <a href="{% url 'zhaosheng:newDetail' post.id %}">
+                        <img src="{{post.photo.url}}" class="img-responsive" onload="DrawImage(this)"/>
+                        <div class="carousel-caption">
+                            <h6>{{post.title}}</h6>
+                        </div>
                       </a>
-              </h4>
-          </div>
-          {% if forloop.first %}
-          <div id="collapse{{new.id}}" class="panel-collapse collapse in">
-              {% else %}
-              <div id="collapse{{new.id}}" class="panel-collapse collapse">
-                  {% endif %}
-                  {% for img in new.newsImgs.all  %}
-                 
-                  <div class="panel-body">
-                      {% if forloop.first %}
-                      <a href="{% url 'newsApp:newsDetail' new.id %}" class="col-md-4">
-                          <img class=" model-img" src="{{img.photo.url}}" alt="图片">
-                      </a>
-                      {% endif %}
-                      <p>{{new.description|truncatechars:"150"|linebreaks}}</p>
-                      
-                  </div>
-                  {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
               </div>
-          </div>
-          {% endfor %}
-          <div class="carousel-inner" style="top: 30px;" >
-            {% for photo in school_photo %}
-            <div class="col-sm-6 col-md-6">
-                <div class="thumbnail">
-                  <a href="{% url 'movieApp:photo' %}">
-                    <img src="{{photo.photo.url}}" style="width: 300px;height: 180px;">
-                    <div class="caption" style="text-align: center;">
+            </div>
+            <div >
+                <ul class="list-unstyled list-new">
+                  {% for mynew in newList %}
+                  <li>
+                    <a href="{% url 'zhaosheng:newDetail' mynew.id %}">
+                      {{mynew.title|truncatechars:"15"}}</a>
+                    <span>【{{mynew.publishDate|date:"Y-m-d"}}】</span>
+                  </li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- 学校新闻 -->
+        <div class="col-md-6" style="float:right;height: 725px; overflow: hidden;">
+            <span class="">
+              <i></i>
+              <a href="{% url 'newsApp:news' 'school' %}">新闻</a>
+            </span>
+            <a class="btn btn-default btn-xs more-btn" href="{% url 'newsApp:news' 'school' %}">更多+</a>
+            <!-- 学校新闻使用手风琴 -->
+            <div id="accordion" >
+                {% for new in newsList %}
+                <div class="card" style="text-align: center;">
+                    <div class="card-header">
+                    <!-- 让第一个默认展开 -->
+                    {% if forloop.first %}
+                        <a class="btn" data-bs-toggle = "collapse" data-bs-parent="#accordion" href="#collapse{{new.id}}">
+                    {% else %}
+                        <a class="btn" data-bs-toggle = "collapse" data-bs-parent="#accordion"  href="#collapse{{new.id}}">
+                    {% endif %}
+                        {{new.title|truncatechars:"20"}}
+                        </a>
+                    <!-- 由于上面的if语句，所以会出现无法闭合问题，请忽略此报错 -->
+                    </div>
+                </div>
+                <!-- 呈现暂开的内容 -->
+                {% if forloop.first %}
+                    <div id="collapse{{new.id}}" class="collapse show" data-bs-parent="#accordion">
+                {% else %}
+                    <div id="collapse{{new.id}}" class="collapse" data-bs-parent="#accordion">
+                {% endif %}
+                    <!-- 呈现内部细节 -->
+                {% for img in new.newsImgs.all  %}
+                    <div class="card-body">
+                    {% if forloop.first %}
+                         <a href="{% url 'newsApp:newsDetail' new.id %}" class="col-md-4">
+                         <img class="img-thumbnail" alt="Cinque Terre" src="{{img.photo.url}}" alt="图片" style="width: 300px;height: 180px;float: right;">
+                         </a>
+                    {% endif %}
+                           <p>{{new.description|truncatechars:"150"|linebreaks}}</p>
+                    </div>
+                {% endfor %}
+                    <!-- 由于上面的if语句，所以会出现无法闭合问题，请忽略此报错 -->
+                    </div>
+            {% endfor %}
+            <div id="school_phone" class="carousel slide" data-bs-ride="carousel" style="top: 30px;" >
+            <div class="carousel-inner">
+                {% for photo in school_photo %}
+                <div {% if forloop.first %} class="carousel-item item active" {% else %} class="carousel-item item" {% endif %} >
+                    <img src="{{photo.photo.url}}" class="img-thumbnail" alt="Cinque Terre" >
+                    <div  class="carousel-caption">
                         <p style="text-align: center;">{{photo.description}}</p>
                     </div>
-                  </a>
                 </div>
-            </div>
-            {% endfor %}
-          </div>
-      </div>
-  </div>
- 
-    
-
-
-</div>
-      <!-- <div class="col-md-5" style="font-size: 9px;font-family: revert;float: right; margin-right: 3%;">
-      {% for new in newsList %}
-     
-        <div class="row">
-            <div class="col-md-4 " style="float: right;">
-                {% for img in new.newsImgs.all  %}
-                {% if forloop.first %}
-                <a href="{% url 'newsApp:newsDetail' new.id %}" class="thumbnail row-4">
-                    <img class="img-responsive model-img" src="{{img.photo.url}}" alt="图片">
-                </a>
-                {% endif %}
                 {% endfor %}
             </div>
-            <div class="col-md-8">
-              <a href="{% url 'newsApp:newsDetail' new.id %}" style="color: burlywood;">
-                <h4>{{ new.title|truncatechars:"50" }}</h4>
-              </a>
-                <!-- <p>{{ new.description|truncatechars:"50"|linebreaks }}</p> -->
-               <!--  <div class="thumbnail row-5">
-                    <div class="caption">
-                        <a href="{% url 'newsApp:newsDetail' new.id %}" class="btn btn-primary" role="button">
-                            <b>点击查看</b>
-                        </a>
-                    </div>
-                </div> -->
-            <!-- </div>
-        </div>
-      {% endfor %} --> -->
-      </div>
-
-      <!-- 首页下面 -->
-
-      <!-- 活动专栏 -->
-    <div class="col-md-6" style="margin-top: 5%;height: 595px;">
-      <div class="home9 pd120 showdiv">
-        <div class="col-md-12 block">
-            <div class="col-md-2 title">
-              <div class="fz40">专题 · 网站</div>
-                  <a href="http://www.haxk.edu.cn/ztzl/dsxx.htm" target="_blank" class="more">
-                    <i></i>
-                    查 看 更 多</a>
-            </div>                
-          <div class="list">
-              <div class="col-md-2 item">                            
-                <div class="pic" style="background-image:url(../../static/img/active/001.png);">
-                </div>                            
-              <div class="tit">                              
-            <div class="h">电子校报</div>                           
-           </div>   
-           <a href="http://xkxyxb.ihwrm.com/" target="_blank">                         
-            <span class="more1">查看更多</span>                            
-           </a>                       
-           </div><div class="col-md-2 item">                            
-             <div class="pic" style="background-image:url(../../static/img/active/002.png);">
-            </div>                            
-            <div class="tit">                                
-              <div class="h">党史学习</div>                           
-             </div>                            
-                                    
-              <a href="http://www.haxk.edu.cn/ztzl/dsxx.htm" target="_blank">
-                <span class="more1">查看更多</span>    </a>                        
-            </div><div class="col-md-2 item">                           
-               <div class="pic" style="background-image:url(../../static/img/active/003.png);"></div>                           
-                <div class="tit">                                
-                  <div class="h">疫情防控</div>                            
-                </div> 
-                <a href="http://www.haxk.edu.cn/ztzl/yqfk.htm" target="_blank">                        
-                <span class="more1">查看更多</span>                            
-                </a>                        
-              </div><div class="col-md-2 item">                           
-                 <div class="pic" style="background-image:url(../../static/img/active/004.png);"></div>                            
-                  <div class="tit">                                
-                      <div class="h">特色活动</div>                            
-                  </div>                            
-                                              
-                <a href="http://www.haxk.edu.cn/ztzl/tshd.htm" target="_blank">
-                  <span class="more1">查看更多</span></a>                        
-              </div>
-            </div><div class="col-md-2 item">                           
-              <div class="pic" style="background-image:url('../../static/img/active/005.png');"></div>                            
-               <div class="tit">                                
-                   <div class="h">媒体关注</div>                            
-               </div>                            
-                                         
-             <a href="http://www.haxk.edu.cn/ztzl/mtgz.htm" target="_blank">
-               <span class="more1">查看更多</span>  </a>                        
-           </div>
             </div>
+
         </div>
     </div>
-  </div>
 
-      <br>
-      <!-- 页脚以上图片呈现-->
-      <div class="col-md-12 photo_down">   
-        <div class="col-md-8 photo1">
-          <div class="photo1_back">
-            <div class="desc-2kQto6BwF4" title="">说到学习的好地方
-
-              怎么能少得了图书室
-              
-              这里典藏云集，浩如烟海
-              
-              资料文献齐全，供以查阅
-              
-              学子们以学会友
-              
-              于此研精覃思流连忘返</div>
-          </div>
-        </div>
-        <div class="col-md-4 photo2">
-          <div class="photo2_back">
-            <div class="desc-2kQto6BwF4" title="">人生无法重来 青春不可辜负；书声琅琅，在破晓黎明前，孜孜不倦，于万籁俱寂时，日光沐浴 星月相随 暮去朝又来，加油！追逐梦想的实干家，让青春在笔尖悄悄绽放 绽放光芒</div>
-         
-          </div>
-        </div>
-        <br>
-        <div class="col-md-4 photo3">
-          <div class="photo3_back">
-            <div class="desc-2kQto6BwF4" title="">岁月不老，青春不朽；生逢其时，重任在肩。让我们树立坚定的信念，踏出坚定的步伐，让我们用知识武装头脑，用双手创造未来，让我们点燃青春的激情，在崭新的世界里，书写新时代青年的华美篇章！</div>
-         
-          </div>
-        </div>
-        <div class="col-md-4 photo4">
-          <div class="photo4_back">
-            <div class="desc-2kQto6BwF4" title="">一张张信纸传递着希望与祝福，一件件衣物饱含着心意与温暖，大手拉小手，仔细接过每一份善意，用心整理每一袋衣物，将同学们最真挚的关怀送到藏区。</div>
-         
-          </div>
-        </div>
-        <div class="col-md-4 photo5">
-          <div class="photo5_back">
-            <div class="desc-2kQto6BwF4" title="">岁月不老，青春不朽；生逢其时，重任在肩。让我们树立坚定的信念，踏出坚定的步伐，让我们用知识武装头脑，用双手创造未来，让我们点燃青春的激情，在崭新的世界里，书写新时代青年的华美篇章！</div>
-         
-          </div>
-        </div>
-      </div>
 
 
 
     <script>
 $(function(){
-
         // 循环轮播到某个特定的帧
         $(".slide-one").click(function(){
             $("#myCarousel").carousel(0);
@@ -307,6 +136,18 @@ $(function(){
         });
     });
 </script>
+<script>
+        var myCarousel = document.querySelector('#school_phone')
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000,//时间间隔
+            wrap: true//轮播到最后一张图片时候继续轮播，true为继续
+        })
+        var myCarousel_top = document.querySelector('#school_phone')
+        var carousel_top = new bootstrap.Carousel(myCarousel_top, {
+            interval: 2000,//时间间隔
+            wrap: true//轮播到最后一张图片时候继续轮播，true为继续
+        })
+</script>
 
 <!-- <script>
   //处理缩略图
@@ -320,4 +161,114 @@ $(function(){
   }
 </script>
  -->
+
+
+    <!-- 活动专栏 -->
+
+    <div class="col-md-6" style="margin-top: 5%;height: 595px;">
+      <div class="home9 pd120 showdiv">
+        <div class="col-md-12 block">
+            <div class="col-md-2 title">
+              <div class="fz40">专题 · 网站</div>
+                  <a href="http://www.haxk.edu.cn/ztzl/dsxx.htm" target="_blank" class="more">
+                    <i></i>
+                    查 看 更 多</a>
+            </div>
+          <div class="list">
+              <div class="col-md-2 item">
+                <div class="pic" style="background-image:url(../../static/img/active/001.png);">
+                </div>
+              <div class="tit">
+            <div class="h">电子校报</div>
+           </div>
+           <a href="http://xkxyxb.ihwrm.com/" target="_blank">
+            <span class="more1">查看更多</span>
+           </a>
+           </div><div class="col-md-2 item">
+             <div class="pic" style="background-image:url(../../static/img/active/002.png);">
+            </div>
+            <div class="tit">
+              <div class="h">党史学习</div>
+             </div>
+
+              <a href="http://www.haxk.edu.cn/ztzl/dsxx.htm" target="_blank">
+                <span class="more1">查看更多</span>    </a>
+            </div><div class="col-md-2 item">
+               <div class="pic" style="background-image:url(../../static/img/active/003.png);"></div>
+                <div class="tit">
+                  <div class="h">疫情防控</div>
+                </div>
+                <a href="http://www.haxk.edu.cn/ztzl/yqfk.htm" target="_blank">
+                <span class="more1">查看更多</span>
+                </a>
+              </div><div class="col-md-2 item">
+                 <div class="pic" style="background-image:url(../../static/img/active/004.png);"></div>
+                  <div class="tit">
+                      <div class="h">特色活动</div>
+                  </div>
+
+                <a href="http://www.haxk.edu.cn/ztzl/tshd.htm" target="_blank">
+                  <span class="more1">查看更多</span></a>
+              </div>
+            </div><div class="col-md-2 item">
+              <div class="pic" style="background-image:url('../../static/img/active/005.png');"></div>
+               <div class="tit">
+                   <div class="h">媒体关注</div>
+               </div>
+
+             <a href="http://www.haxk.edu.cn/ztzl/mtgz.htm" target="_blank">
+               <span class="more1">查看更多</span>  </a>
+           </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+      <br>
+
+
+      <!-- 页脚以上图片呈现-->
+      <div class="col-md-12 photo_down">
+        <div class="col-md-8 photo1">
+          <div class="photo1_back">
+            <div class="desc-2kQto6BwF4" title="">说到学习的好地方
+
+              怎么能少得了图书室
+
+              这里典藏云集，浩如烟海
+
+              资料文献齐全，供以查阅
+
+              学子们以学会友
+
+              于此研精覃思流连忘返</div>
+          </div>
+        </div>
+        <div class="col-md-4 photo2">
+          <div class="photo2_back">
+            <div class="desc-2kQto6BwF4" title="">人生无法重来 青春不可辜负；书声琅琅，在破晓黎明前，孜孜不倦，于万籁俱寂时，日光沐浴 星月相随 暮去朝又来，加油！追逐梦想的实干家，让青春在笔尖悄悄绽放 绽放光芒</div>
+
+          </div>
+        </div>
+        <br>
+        <div class="col-md-4 photo3">
+          <div class="photo3_back">
+            <div class="desc-2kQto6BwF4" title="">岁月不老，青春不朽；生逢其时，重任在肩。让我们树立坚定的信念，踏出坚定的步伐，让我们用知识武装头脑，用双手创造未来，让我们点燃青春的激情，在崭新的世界里，书写新时代青年的华美篇章！</div>
+
+          </div>
+        </div>
+        <div class="col-md-4 photo4">
+          <div class="photo4_back">
+            <div class="desc-2kQto6BwF4" title="">一张张信纸传递着希望与祝福，一件件衣物饱含着心意与温暖，大手拉小手，仔细接过每一份善意，用心整理每一袋衣物，将同学们最真挚的关怀送到藏区。</div>
+
+          </div>
+        </div>
+        <div class="col-md-4 photo5">
+          <div class="photo5_back">
+            <div class="desc-2kQto6BwF4" title="">岁月不老，青春不朽；生逢其时，重任在肩。让我们树立坚定的信念，踏出坚定的步伐，让我们用知识武装头脑，用双手创造未来，让我们点燃青春的激情，在崭新的世界里，书写新时代青年的华美篇章！</div>
+
+          </div>
+        </div>
+      </div>
+
 {% endblock %}
