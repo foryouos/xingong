@@ -4,7 +4,7 @@ from django.utils import timezone
 # Create your models here.
 
 # 设置后台服务器相关设置  数据库
-class ESchool_Photo(models.Model):
+class School_Photo(models.Model):
     description = models.TextField(max_length=500,
                                    blank=True,
                                    null=True)

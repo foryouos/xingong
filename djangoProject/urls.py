@@ -27,6 +27,7 @@ urlpatterns = [
     path('Faculty/',include('Faculty.urls')),
     path('news/',include('news.urls')),
     path('ueditor/',include('DjangoUeditor.urls' )),  # 富文本应用
+    path(r'mdeditor/',include('mdeditor.urls')),  #Markdown
 ]
 
 # 将动态资源配置添加到静态路由

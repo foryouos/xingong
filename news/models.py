@@ -1,6 +1,7 @@
 from django.db import models
 # from DjangoUeditor.models import UEditorField
 from django.utils import timezone
+from mdeditor.fields import MDTextField
 # Create your models here.
 
 class News(models.Model):
@@ -18,7 +19,8 @@ class News(models.Model):
     #                          imagePath='news/images/',
     #                          filePath='news/files/',
     #                         )
-    description = models.TextField(verbose_name='新闻描述')
+    #description = models.TextField(verbose_name='新闻描述')
+    description = MDTextField(verbose_name='新闻描述')
     newsType=models.CharField(choices=NEWS_CHOICES,
                               max_length=50,
                               verbose_name='新闻类型')

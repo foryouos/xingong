@@ -7,7 +7,7 @@
   <!-- 显示主题信息 -->
   <link href="{% static 'css/news.css' %}" rel="stylesheet">
     <!-- 填写侧边栏 -->
-    <div class="container" style="width: 100%;">
+    <div class="container row" style="width: 100%;">
         <!-- 侧边导航栏 -->
         <div class="col-md-2" style="left: 10%;">
             <div class="model-title">
@@ -27,7 +27,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-7" style="margin-left: 15%;">
+        <div class="col-md-8" style="margin-left: 15%;">
           
             <!-- 主体内容 -->
             <div class="container" style="width: 100%;">
@@ -49,10 +49,26 @@
                 </div>
                
                 <div class="model-details">
-                  
-                    {{ news.description | safe }}
-                </div>
-            </div>
+                     <div id="content"><textarea>{{ object.content }}</textarea></div>
+
+                <script>
+                  $(function () {
+                      // js 解析markdown
+                      editormd.markdownToHTML("content", {
+                          //htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                          emoji           : true,
+                          taskList        : true,
+                          tex             : true,  // 默认不解析
+                          flowChart       : true,  // 默认不解析
+                          sequenceDiagram : true,  // 默认不解析
+                      });
+
+                      $(".reference-link").each(function (i,obj) {
+                        console.log(obj)
+                      })
+                  })
+
+                </script>
         </div>
     </div>
 

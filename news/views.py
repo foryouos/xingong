@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import News
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+
 # Create your views here.
 
 
@@ -25,6 +26,7 @@ def news(request,newsName):
         right = []
         left_has_more = False
         right_has_more = False
+
         first = False
         last = False
         total_pages = p.num_pages
@@ -63,6 +65,7 @@ def news(request,newsName):
             'total_pages': total_pages,
             'page': page,
         }
+
     return render(
             request,'newslist.html',{
             'active_menu': 'news',
@@ -70,6 +73,7 @@ def news(request,newsName):
             'newsName': newsName,
             'newsList': newsList,
             'pageData': pageData,
+            # 'object': object
         })
 
 
