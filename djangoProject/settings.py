@@ -85,6 +85,18 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# 修改数据库为本地的MySQL数据库，数据库名称为xingongweb
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', # 数据库引擎
+#         'NAME': 'xingongweb',   # 数据库名称
+#         'HOST': 'localhost', #数据库IP地址，默认为空为本机
+#         'PORT': '3306',  # 端口
+#         'USER': 'root',  # 远程登录账户
+#         'PASSWORD':'5211314',  # 数据库登录密码
+#
+#     }
+# }
 
 
 # Password validation

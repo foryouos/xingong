@@ -4,6 +4,7 @@ from django.db import models
 #创建首页图片轮播后台数据库 k=Luobo_main
 #
 class Lunbo_main(models.Model):
+    # 描述字符，最大值，是否能为空，名称，
     description=models.TextField(max_length=20,
                                  blank=True,
                                  null=True,
@@ -11,6 +12,7 @@ class Lunbo_main(models.Model):
     photo = models.ImageField(upload_to='Lunbo_main/',
                               blank=True,
                               verbose_name='轮播图片')
+    # 模型名称修改Metal元数据
     class Meta:
         verbose_name='轮播图片'
         verbose_name_plural='首页轮播图片'

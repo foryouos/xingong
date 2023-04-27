@@ -1,6 +1,6 @@
 from os import path
 from django.apps import AppConfig
-# 后端首页显示
+# 后端首页显示 # 应用名称修改
 VERBOSE_APP_NAME = '首页轮播'
 
 

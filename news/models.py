@@ -4,6 +4,7 @@ from django.utils import timezone
 # Create your models here.
 
 class News(models.Model):
+    # 提供给新闻类型提供选项
     NEWS_CHOICES=(
         ('学校新闻','学校新闻'),
         ('通知公告','通知公告'),

@@ -11,8 +11,8 @@ from .models import Lunbo_main,Lunbo_video
 # Create your views here.
 def home(request):
     newList = MyNew.objects.all().filter(~Q(
-        newType='招生信息')).order_by('-publishDate')
-    postList = set()
+        newType='招生信息')).order_by('-publishDate') #基于发布时间
+    postList = set()  # 展报前三个
     postNum = 0
     for s in newList:
         if s.photo:
@@ -20,7 +20,7 @@ def home(request):
             postNum += 1
         if postNum == 3:  # 只截取最近的3个展报
             break
-    # 新闻列表
+    # 新闻列表，控制新闻长度为
     if (len(newList) > 7):
         newList = newList[0:7]    
 
@@ -36,6 +36,7 @@ def home(request):
 
 
     school_photo = School_Photo.objects.all().order_by('-publishDate')
+    #将前端所需要的数据传递到
     return render(request,'home.html',{
         'active_menu':'home',
         'sub_menu':'home',

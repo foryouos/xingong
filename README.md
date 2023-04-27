@@ -49,6 +49,10 @@ print(line_A(1))  # 输出2
 ```
 > [具体使用](use.md)
 # 依赖环境（需要更新)
+> 由于MySQL8.0的密码格式，Django不支持，修改root用户的密码格式，还有密码，修改成自己
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '5211314';
+```
 > bootstrap 5 + Django3.2.3 + Python3.6 +   DPlayer v1.27.1
 > 安装DjangoUeditor==1.8.143：下载链接https://gitcode.net/mirrors/twz915/djangoueditor3?utm_source=csdn_github_accelerator
 > D:\djangoueditor3>E:\新工项目\venv\Scripts\python.exe setup.py install
